@@ -1,0 +1,4 @@
+@import "tailwindcss";
+body {
+    @apply bg-black; /* Or any Tailwind color class like bg-gray-100, bg-red-500, etc. */
+  }
