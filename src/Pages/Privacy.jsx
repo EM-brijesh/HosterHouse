@@ -12,7 +12,7 @@ const Privacy = () => {
         </h1>
 
         <p className="text-gray-300 text-lg text-center mt-4 max-w-2xl animate__animated animate__fadeIn animate__delay-2s">
-          At ClubHouse, your privacy and security are our top priorities. This document outlines our practices regarding the collection, use, and protection of your personal information, as well as the terms that govern your use of our platform.
+          At HosterHouse, your privacy and security are our top priorities. This document outlines our practices regarding the collection, use, and protection of your personal information, as well as the terms that govern your use of our platform.
         </p>
 
         <div className="mt-8 w-full max-w-3xl animate__animated animate__fadeIn animate__delay-3s">
@@ -38,13 +38,13 @@ const Privacy = () => {
 
           <h2 className="text-2xl font-bold mb-4">5. Terms of Use</h2>
           <p className="text-gray-300 mb-4">
-            By using ClubHouse, you agree to our terms of service, including our community guidelines, event policies, and data handling practices.
+            By using HosterHouse, you agree to our terms of service, including our community guidelines, event policies, and data handling practices.
           </p>
         </div>
 
         <div className="mt-12 text-center text-gray-400 text-sm animate__animated animate__fadeIn animate__delay-4s">
           <p>
-            If you have any questions about our Privacy Policy or Terms of Service, please contact us at support@clubhouse.com.
+            If you have any questions about our Privacy Policy or Terms of Service, please contact us at support@Hosterhouse.com.
           </p>
         </div>
       </div>

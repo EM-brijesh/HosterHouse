@@ -14,7 +14,7 @@ const About = () => {
         </h1>
 
         <p className="text-gray-300 text-lg text-center mt-4 max-w-2xl animate__animated animate__fadeIn animate__delay-2s">
-          Welcome to ClubHouse, where every event is an opportunity to meet new faces, explore passions, and create unforgettable memories.  
+          Welcome to HosterHouse, where every event is an opportunity to meet new faces, explore passions, and create unforgettable memories.  
           Whether you love sports, wild parties, cozy house gatherings, or hilarious comedy nights — we've got something for everyone.
         </p>
 
@@ -23,11 +23,11 @@ const About = () => {
             <span className="block">Bringing You Closer</span>
             <span className="block">To People & Events</span>
           </div>
-          <img src={logo} alt="ClubHouse Logo" className="w-64 h-auto mt-4 md:mt-0 animate__animated animate__fadeIn animate__delay-4s" />
+          <img src={logo} alt="HosterHouse Logo" className="w-64 h-auto mt-4 md:mt-0 animate__animated animate__fadeIn animate__delay-4s" />
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-around mt-12 w-full animate__animated animate__fadeIn animate__delay-5s">
-          <img src={logo} alt="ClubHouse Logo" className="w-64 h-auto" />
+          <img src={logo} alt="HosterHouse Logo" className="w-64 h-auto" />
           <div className="text-white font-mono text-4xl sm:text-5xl text-center px-4">
             <span className="block">Join Events You Love</span>
             <span className="block">Or Create Your Own</span>
