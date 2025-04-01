@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css'
-import Home from './Pages/Home'
 import About from './Pages/About'
 import Privacy from './Pages/Privacy';
 import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './Pages/Dashboard';
 import Navbar from './Components/Navbar';
+import Login from './Pages/Login';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <main className="container mx-auto px-4 py-8">
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Login/>} />
             <Route 
               path="/dashboard" 
               element={
