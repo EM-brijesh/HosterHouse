@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
+import authService from '../Services/authService';
 
 const Home = () => {
   const [isSignUp, setIsSignUp] = useState(false);
-  const [data , setData] = useState({
-    email: '',
+  const [data, setData] = useState({
+   username: '',
     password: '',
     location: ''
   });
@@ -13,13 +14,23 @@ const Home = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleSignUp = () => {
-    authService.signup(data.email, data.password, data.location);
+  const handleSignUp = async () => {
+    try {
+      const response = await authService.signup(data.username, data.password, data.location);
+      console.log("Signup Successful:", response);
+    } catch (error) {
+      console.error("Signup Error:", error.response?.data || error.message);
+    }
   };
 
- const handleSignin = () => {
-  authService.login(data.email, data.password);
- };
+  const handleSignin = async () => {
+    try {
+      const response = await authService.login(data.username, data.password);
+      console.log("Login Successful:", response);
+    } catch (error) {
+      console.error("Login Error:", error.response?.data || error.message);
+    }
+  };
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-black text-white">
@@ -28,17 +39,15 @@ const Home = () => {
         <div className="hidden md:flex w-2/5 justify-center">
           <img src={logo} alt="ClubHouse Logo" className="w-100" />
         </div>
-        
+
         {/* Right Side - Sign In / Sign Up Form */}
         <div className="flex flex-col items-center p-8 rounded-lg shadow-md w-96 border border-white">
-          
-          
           {isSignUp ? (
             <>
-            <h1 className="text-3xl font-bold font-mono mb-6 bg-gradient-to-r from-gray-400 to-gray-800 text-transparent bg-clip-text">
-            hosterHouse Join Now!
-          </h1>
-              <input type="email" placeholder="Email" className="w-full p-2 mb-4 bg-black text-white border border-gray-700 rounded" name="email" value={data.email} onChange={handleChange} />
+              <h1 className="text-3xl font-bold font-mono mb-6 bg-gradient-to-r from-gray-400 to-gray-800 text-transparent bg-clip-text">
+                hosterHouse Join Now!
+              </h1>
+              <input type="text" placeholder="Username" className="w-full p-2 mb-4 bg-black text-white border border-gray-700 rounded" name="username" value={data.username} onChange={handleChange} />
               <input type="password" placeholder="Password" className="w-full p-2 mb-4 bg-black text-white border border-gray-700 rounded" name="password" value={data.password} onChange={handleChange} />
               <input type="text" placeholder="Location" className="w-full p-2 mb-4 bg-black text-white border border-gray-700 rounded" name="location" value={data.location} onChange={handleChange} />
               <button className="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 rounded" onClick={handleSignUp}>Sign Up</button>
@@ -48,10 +57,10 @@ const Home = () => {
             </>
           ) : (
             <>
-            <h1 className="text-3xl font-bold font-mono mb-6 bg-gradient-to-r from-gray-400 to-gray-800 text-transparent bg-clip-text">
-            hosterHouse Happening Now!
-          </h1>
-              <input type="text" placeholder="Phone number, username, or email" className="w-full p-2 mb-4 bg-black text-white border border-gray-700 rounded" name="email" value={data.email} onChange={handleChange} />
+              <h1 className="text-3xl font-bold font-mono mb-6 bg-gradient-to-r from-gray-400 to-gray-800 text-transparent bg-clip-text">
+                hosterHouse Happening Now!
+              </h1>
+              <input type="text" placeholder="Phone number, username, or username" className="w-full p-2 mb-4 bg-black text-white border border-gray-700 rounded" name="username" value={data.username} onChange={handleChange} />
               <input type="password" placeholder="Password" className="w-full p-2 mb-4 bg-black text-white border border-gray-700 rounded" name="password" value={data.password} onChange={handleChange} />
               <button className="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 rounded" onClick={handleSignin}>Log in</button>
               <div className="text-gray-400 text-sm mt-4">------------ OR -----------</div>
@@ -66,7 +75,7 @@ const Home = () => {
           )}
         </div>
       </div>
-      
+
       {/* Footer Section */}
       <footer className="w-full text-center p-4 text-gray-500 text-sm">
         <a href="/about">About</a> &bull; <a href="/privacy&terms">Privacy & Terms</a>
