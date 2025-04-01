@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
 import authService from '../Services/authService';
-
+import { useNavigate } from 'react-router-dom';
 const Home = () => {
   const [isSignUp, setIsSignUp] = useState(false);
+  const navigate = useNavigate();
   const [data, setData] = useState({
    username: '',
     password: '',
@@ -27,6 +28,8 @@ const Home = () => {
     try {
       const response = await authService.login(data.username, data.password);
       console.log("Login Successful:", response);
+      navigate('/dashboard');
+
     } catch (error) {
       console.error("Login Error:", error.response?.data || error.message);
     }

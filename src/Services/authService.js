@@ -13,7 +13,11 @@ const authService = {
                     }
                 }
             );
-            return response.data;
+            const result = response.data;
+            localStorage.setItem('token', result.token);
+            localStorage.setItem('location', result.location);
+            localStorage.setItem('username', username);
+            return result;
         } catch (error) {
             console.error('Login error:', {
                 message: error.message,
@@ -42,6 +46,17 @@ const authService = {
             });
             throw error;
         }
+    },
+
+    getToken() {
+        return localStorage.getItem('token');
+    },
+
+    logout() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('location');
+        localStorage.removeItem('username');
+        window.location.href = '/';
     }
 };
 

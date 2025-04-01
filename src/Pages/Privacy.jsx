@@ -4,7 +4,6 @@ import Navbar from '../Components/Navbar';
 const Privacy = () => {
   return (
     <>
-      <Navbar />
 
       <div className="bg-black min-h-screen px-6 py-12 text-white flex flex-col items-center justify-center">
         <h1 className="text-4xl sm:text-6xl font-extrabold text-center animate__animated animate__fadeIn animate__delay-1s">
