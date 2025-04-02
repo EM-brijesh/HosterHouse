@@ -6,6 +6,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './Pages/Dashboard';
 import Navbar from './Components/Navbar';
 import Login from './Pages/Login';
+import EventDetails from './Pages/EventDetails';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             />
             <Route path="/about" element={<About />} />
             <Route path="/privacy&terms" element={<Privacy />} />
+            <Route path="/event/:id" element={<EventDetails />} />
           </Routes>
         </main>
     </Router>
