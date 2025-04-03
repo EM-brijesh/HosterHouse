@@ -13,4 +13,18 @@ export const getLargeevents = async () => {
 };
 
 
+export const getTrendingEvents = async () => {
+    const response = await fetch(`${API_URL}/gettrendingevents`);
+    const data = await response.json();
+    return data;
+};
+
+export const getUpcomingEvents = async () => {
+    const response = await fetch(`${API_URL}/getupcomingevents`);
+    const data = await response.json();
+    return data;
+};
+
+
+
 

@@ -6,7 +6,7 @@ const Loading = () => {
       <>
       
       <div className='flex flex-col min-h-50 items-center'> 
-        Club House Loading
+         Loading
       </div>
       </>
     </div>

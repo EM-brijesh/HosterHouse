@@ -38,65 +38,75 @@ const Dashboard = () => {
     }
 
     return (
-        <>
+        <div className="min-h-screen bg-black">
             <PromotionalEvents />
-            {/* Hosting Events */}
-            <h1 className="text-2xl text-white pt-8 font-bold">
-                Hosting Events
-            </h1>
-            <div className="w-full h-px bg-white m-2"></div>
-            
-            <div className='flex gap-4 pt-8'>
-                {hosterEvents.map((event) => (
-                    <Card
-                        key={event._id}
-                        id={event._id}
-                        imageSrc={event.image || image}
-                        EventName={event.eventname}
-                        EventTime={event.time}
-                        EventLocation={event.location}
-                        EventType={event.type}
-                    />
-                ))}
-            </div>
+            <div className="container mx-auto px-4 py-8">
+                {/* Hosting Events */}
+                <div className="mb-12">
+                    <h1 className="text-2xl text-white pt-8 font-bold">
+                        Hosting Events
+                    </h1>
+                    <div className="w-full h-px bg-white m-2"></div>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-8">
+                        {hosterEvents.map((event) => (
+                            <Card
+                                key={event._id}
+                                id={event._id}
+                                imageSrc={event.image || image}
+                                EventName={event.eventname}
+                                EventTime={event.time}
+                                EventLocation={event.location}
+                                EventType={event.type}
+                            />
+                        ))}
+                    </div>
+                </div>
 
-            <h1 className="text-2xl text-white pt-8 font-bold">
-                Trending Events
-            </h1>
-            <div className="w-full h-px bg-white m-2"></div>
-            
-            <div className='flex gap-4 pt-8'>
-                {largeEvents.map((event) => (
-                    <Card
-                        key={event._id}
-                        id={event._id}
-                        imageSrc={event.image || image}
-                        EventName={event.eventname}
-                        EventTime={event.time}
-                        EventLocation={event.location}
-                        EventType={event.type}
-                    />
-                ))}
-            </div>
+                {/* Trending Events */}
+                <div className="mb-12">
+                    <h1 className="text-2xl text-white pt-8 font-bold">
+                        Trending Events
+                    </h1>
+                    <div className="w-full h-px bg-white m-2"></div>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-8">
+                        {largeEvents.map((event) => (
+                            <Card
+                                key={event._id}
+                                id={event._id}
+                                imageSrc={event.image || image}
+                                EventName={event.eventname}
+                                EventTime={event.time}
+                                EventLocation={event.location}
+                                EventType={event.type}
+                            />
+                        ))}
+                    </div>
+                </div>
 
-            <h1 className="text-2xl text-white pt-8 font-bold">
-                Upcoming Events
-            </h1>
-            <div className="w-full h-px bg-white m-2"></div>
-            <div className='flex gap-2 pt-8'>
-                {largeEvents.slice(0, 2).map((event) => (
-                    <Card
-                        key={event._id}
-                        id={event._id}
-                        imageSrc={event.image || upcoming}
-                        EventName={event.eventname}
-                        EventTime={event.time}
-                        EventLocation={event.location}
-                        EventType={event.type}
-                    />
-                ))}
+                {/* Upcoming Events */}
+                <div className="mb-12">
+                    <h1 className="text-2xl text-white pt-8 font-bold">
+                        Upcoming Events
+                    </h1>
+                    <div className="w-full h-px bg-white m-2"></div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-8">
+                        {largeEvents.slice(0, 2).map((event) => (
+                            <Card
+                                key={event._id}
+                                id={event._id}
+                                imageSrc={event.image || upcoming}
+                                EventName={event.eventname}
+                                EventTime={event.time}
+                                EventLocation={event.location}
+                                EventType={event.type}
+                            />
+                        ))}
+                    </div>
+                </div>
             </div>
-        </>
+        </div>
     );
 };
 

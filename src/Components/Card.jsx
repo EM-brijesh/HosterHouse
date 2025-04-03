@@ -33,7 +33,7 @@ const Card = ({
 
     return (
         <div 
-            className="flex flex-col cursor-pointer transform transition-transform hover:scale-105"
+            className="flex flex-col cursor-pointer transform transition-transform "
             onClick={handleClick}
         >
             <div className="w-80 rounded-l shadow-xl bg-white overflow-hidden">
