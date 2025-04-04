@@ -25,6 +25,14 @@ export const getUpcomingEvents = async () => {
     return data;
 };
 
+export const likeEvent = async (eventId) => {
+    const response = await fetch(`${API_URL}/likeevent/${eventId}`);
+    const data = await response.json();
+    return data;
+};
+
+
+
 
 
 

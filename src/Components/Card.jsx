@@ -26,6 +26,7 @@ const Card = ({
                     EventTime,
                     EventLocation,
                     EventType,
+                    EventLikes,
                     id
                 }
             }
