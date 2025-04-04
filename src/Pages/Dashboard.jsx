@@ -3,13 +3,30 @@ import Navbar from '../Components/Navbar';
 import Card from '../Components/Card';
 import PromotionalEvents from '../Components/PromotionalEvents';
 import { getHosterEvents, getLargeevents } from '../Services/EventService';
-import image from '../assets/Card.jpg';
-import upcoming from '../assets/upcoming.jpg';
+import comedy from '../assets/card_comedy.png';
+import party from '../assets/card_party.png';
+import sport from '../assets/card_sport.png';
+import random from '../assets/card_random.png';
+
 
 const Dashboard = () => {
     const [loading, setLoading] = useState(true);
     const [hosterEvents, setHosterEvents] = useState([]);
     const [largeEvents, setLargeEvents] = useState([]);
+
+    const getEventImage = (eventType) => {
+        if (!eventType) return random; // Return default image if type is undefined or null
+        
+        const type = eventType.toLowerCase();
+        if (type.includes('comedy') || type.includes('standup')) {
+            return comedy;
+    } else if (type.includes('music') || type.includes('party')) {
+            return party;
+        } else if (type.includes('sports') || type.includes('game')) {
+            return sport;
+        }
+        return random; // default image
+    };
 
     useEffect(() => {
         const fetchEvents = async () => {
@@ -18,6 +35,7 @@ const Dashboard = () => {
                     getHosterEvents(),
                     getLargeevents()
                 ]);
+                
                 setHosterEvents(hosterEventsData);
                 setLargeEvents(largeEventsData);
                 setLoading(false);
@@ -53,11 +71,12 @@ const Dashboard = () => {
                             <Card
                                 key={event._id}
                                 id={event._id}
-                                imageSrc={event.image || image}
+                                imageSrc={getEventImage(event?.type)}
                                 EventName={event.eventname}
                                 EventTime={event.time}
                                 EventLocation={event.location}
                                 EventType={event.type}
+                                EventLikes={event.likes}
                             />
                         ))}
                     </div>
@@ -71,17 +90,24 @@ const Dashboard = () => {
                     <div className="w-full h-px bg-white m-2"></div>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-8">
-                        {largeEvents.map((event) => (
-                            <Card
-                                key={event._id}
-                                id={event._id}
-                                imageSrc={event.image || image}
-                                EventName={event.eventname}
-                                EventTime={event.time}
-                                EventLocation={event.location}
-                                EventType={event.type}
-                            />
-                        ))}
+                        {largeEvents.filter(event => event.likes > 0).length > 0 ? (
+                            largeEvents.filter(event => event.likes > 0).map((event) => (
+                                <Card
+                                    key={event._id}
+                                    id={event._id}
+                                    imageSrc={getEventImage(event?.type)}
+                                    EventName={event.eventname}
+                                    EventTime={event.time}
+                                    EventLocation={event.location}
+                                    EventType={event.type}
+                                    EventLikes={event.likes}
+                                />
+                            ))
+                        ) : (
+                            <div className="col-span-full text-center text-white">
+                                No trending events found
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -96,11 +122,12 @@ const Dashboard = () => {
                             <Card
                                 key={event._id}
                                 id={event._id}
-                                imageSrc={event.image || upcoming}
+                                imageSrc={getEventImage(event?.type)}
                                 EventName={event.eventname}
                                 EventTime={event.time}
                                 EventLocation={event.location}
                                 EventType={event.type}
+                                EventLikes={event.likes}
                             />
                         ))}
                     </div>

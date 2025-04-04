@@ -73,6 +73,15 @@ const Navbar = () => {
                                         </button>
                                         <button 
                                             className="text-white hover:text-gray-300 p-2 text-lg"
+                                            onClick={() => {
+                                                navigate('/profile');
+                                                setDrawerOpen(false);
+                                            }}
+                                        >
+                                            Profile
+                                        </button>
+                                        <button 
+                                            className="text-white hover:text-gray-300 p-2 text-lg"
                                             onClick={handleLogout}
                                         >
                                             Logout
@@ -86,9 +95,9 @@ const Navbar = () => {
                 {token ? (
                     <div className='flex items-center gap-4'>     
                         <div className="text-white text-lg">
-                            Welcome, {username}
+                            Hi, {username}
                         </div>
-                        <div className="text-white text-sm">
+                        <div className="bg-white  text-black px-2 py-1 rounded-full">
                             {location}
                         </div>
                         <img src={logo} alt="Logo" className="w-15" />
