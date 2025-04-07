@@ -7,6 +7,8 @@ const Card = ({
     EventLocation,
     EventType,
     EventLikes,
+    EventDuration,
+    EventAgeLimit,
     id
 }) => {
     const navigate = useNavigate();
@@ -27,6 +29,8 @@ const Card = ({
                     EventLocation,
                     EventType,
                     EventLikes,
+                    EventDuration,
+                    EventAgeLimit,
                     id
                 }
             }

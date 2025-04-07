@@ -7,6 +7,7 @@ export default function EventDetails() {
   const location = useLocation();
   const navigate = useNavigate();
   const event = location.state?.event;
+  console.log(event);
 
   if (!event) {
     return (
@@ -59,8 +60,8 @@ export default function EventDetails() {
         <div className="bg-gray-100 p-6 rounded-lg shadow-lg h-fit">
           <div className="space-y-3">
             <p className="text-gray-700">📅 {formatDate(event.EventTime)}</p>
-            <p className="text-gray-700">⏳ Duration: TBD</p>
-            <p className="text-gray-700">🎟 Age Limit: TBD</p>
+            <p className="text-gray-700">⏳ {event.EventDuration}</p>
+            <p className="text-gray-700">🎟 {event.EventAgeLimit}</p>
             <p className="text-gray-700">🎭 {event.EventType}</p>
             <p className="text-gray-700 flex items-center gap-1">
               <MdLocationOn className="text-blue-500" /> {event.EventLocation}
@@ -69,9 +70,9 @@ export default function EventDetails() {
           <div className="mt-4 bg-yellow-100 text-yellow-800 p-2 rounded">
             Bookings are filling fast for {event.EventLocation}
           </div>
-          <p className="text-lg font-semibold text-gray-900 mt-4">Price: TBD</p>
+          {/* <p className="text-lg font-semibold text-gray-900 mt-4">Price: TBD</p> */}
           <button className="w-full bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg mt-4">
-            Book Now
+            Join Now
           </button>
         </div>
       </div>

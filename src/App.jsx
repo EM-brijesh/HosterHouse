@@ -14,29 +14,31 @@ function App() {
   const token = authService.getToken();
 
   return (
-    <Router>
-        <main className="container mx-auto px-4 py-8">
+      <Router>
+        <div className="flex flex-col min-h-screen">
           <Navbar />
-          <Routes>
-            <Route 
-              path="/" 
-              element={token ? <Navigate to="/dashboard" replace /> : <Login />} 
-            />
-            <Route 
-              path="/dashboard" 
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              } 
-            />
-            <Route path="/about" element={<About />} />
-            <Route path="/privacy&terms" element={<Privacy />} />
-            <Route path="/event/:id" element={<EventDetails />} />
-          </Routes>
-        </main>
-        <Footer />
-    </Router>
+          <main className="flex-grow">
+            <Routes>
+              <Route 
+                path="/" 
+                element={token ? <Navigate to="/dashboard" replace /> : <Login />} 
+              />
+              <Route 
+                path="/dashboard" 
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route path="/about" element={<About />} />
+              <Route path="/privacy&terms" element={<Privacy />} />
+              <Route path="/event/:id" element={<EventDetails />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
   );
 }
 

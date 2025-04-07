@@ -77,6 +77,8 @@ const Dashboard = () => {
                                 EventLocation={event.location}
                                 EventType={event.type}
                                 EventLikes={event.likes}
+                                EventDuration={event.Duration}
+                                EventAgeLimit={event.AgeLimit}
                             />
                         ))}
                     </div>
@@ -101,6 +103,8 @@ const Dashboard = () => {
                                     EventLocation={event.location}
                                     EventType={event.type}
                                     EventLikes={event.likes}
+                                    EventDuration={event.Duration}
+                                    EventAgeLimit={event.AgeLimit}
                                 />
                             ))
                         ) : (
@@ -128,6 +132,8 @@ const Dashboard = () => {
                                 EventLocation={event.location}
                                 EventType={event.type}
                                 EventLikes={event.likes}
+                                EventDuration={event.Duration}
+                                EventAgeLimit={event.AgeLimit}
                             />
                         ))}
                     </div>

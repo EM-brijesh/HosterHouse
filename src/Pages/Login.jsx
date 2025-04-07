@@ -80,10 +80,6 @@ const Login = () => {
       </div>
 
       {/* Footer Section */}
-      <footer className="w-full text-center p-4 text-gray-500 text-sm">
-        <a href="/about">About</a> &bull; <a href="/privacy&terms">Privacy & Terms</a>
-        <p>&copy; {new Date().getFullYear()} hosterHouse</p>
-      </footer>
     </div>
   );
 };

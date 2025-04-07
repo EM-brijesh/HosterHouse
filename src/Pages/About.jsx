@@ -2,6 +2,8 @@ import React from 'react';
 import Drawer from '../assets/drawer.svg';
 import logo from '../assets/logo.png';
 import Navbar from '../Components/Navbar';
+import about_1 from '../assets/about_1.png';
+import about_2 from '../assets/about_2.png';
 
 const About = () => {
   return (
@@ -23,11 +25,11 @@ const About = () => {
             <span className="block">Bringing You Closer</span>
             <span className="block">To People & Events</span>
           </div>
-          <img src={logo} alt="HosterHouse Logo" className="w-64 h-auto mt-4 md:mt-0 animate__animated animate__fadeIn animate__delay-4s" />
+          <img src={about_1} alt="HosterHouse Logo" className="w-72 h-auto mt-4 md:mt-0 animate__animated animate__fadeIn animate__delay-4s" />
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-around mt-12 w-full animate__animated animate__fadeIn animate__delay-5s">
-          <img src={logo} alt="HosterHouse Logo" className="w-64 h-auto" />
+          <img src={about_2} alt="HosterHouse Logo" className="w-72 h-auto" />
           <div className="text-white font-mono text-4xl sm:text-5xl text-center px-4">
             <span className="block">Join Events You Love</span>
             <span className="block">Or Create Your Own</span>
