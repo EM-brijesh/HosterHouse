@@ -9,6 +9,7 @@ import Login from './Pages/Login';
 import EventDetails from './Pages/EventDetails';
 import Footer from './Components/Footer';
 import authService from './Services/authService';
+import CreateEventForm from './Pages/Creator';
 
 function App() {
   const token = authService.getToken();
@@ -28,6 +29,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <Dashboard />
+                  </ProtectedRoute>
+                } 
+              />
+               <Route 
+                path="/hoster" 
+                element={
+                  <ProtectedRoute>
+                    <CreateEventForm />
                   </ProtectedRoute>
                 } 
               />

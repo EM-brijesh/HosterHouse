@@ -72,6 +72,15 @@ const Navbar = () => {
                                             Dashboard
                                         </button>
                                         <button 
+                                            className="text-purple-600 hover:text-gray-300 p-2 text-lg"
+                                            onClick={() => {
+                                                navigate('/hoster');
+                                                setDrawerOpen(false);
+                                            }}
+                                        >
+                                            Your Hoster
+                                        </button>
+                                        <button 
                                             className="text-white hover:text-gray-300 p-2 text-lg"
                                             onClick={() => {
                                                 navigate('/profile');

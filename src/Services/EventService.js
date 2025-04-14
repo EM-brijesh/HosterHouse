@@ -1,4 +1,5 @@
 const API_URL = 'http://localhost:3000/api/';
+import axios from "axios";
 
 export const getHosterEvents = async () => {
     const response = await fetch(`${API_URL}/getalleventssmall`);
@@ -31,7 +32,26 @@ export const likeEvent = async (eventId) => {
     return data;
 };
 
-
+export const CreateHoster = async (formData, token) => {
+    try {
+      const response = await axios.post(`${API_URL}/addhouseevent`, // or full URL like: http://localhost:5000/addhouseevent
+        {
+          ...formData,
+          totalSpots: formData.count, // ensure totalSpots is set
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+  
+      return response.data;
+    } catch (error) {
+      console.error("Error creating event:", error.response?.data || error.message);
+      throw new Error(error.response?.data?.message || "Failed to create event");
+    }
+  };
 
 
 

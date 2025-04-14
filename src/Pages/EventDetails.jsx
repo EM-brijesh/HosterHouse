@@ -55,6 +55,8 @@ export default function EventDetails() {
           </div>
           <h2 className="text-xl font-semibold text-white mt-6">About The Event</h2>
           <p className="text-gray-600 mt-2">More details coming soon...</p>
+          {/* aboutus */}
+          <p className="text-white mt-2">{event.EventAbout}</p>
         </div>
         
         <div className="bg-gray-100 p-6 rounded-lg shadow-lg h-fit">
