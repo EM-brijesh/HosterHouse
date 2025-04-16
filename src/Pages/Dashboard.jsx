@@ -87,40 +87,64 @@ const Dashboard = () => {
 
                 {/* Trending Events */}
                 <div className="mb-12">
-                    <h1 className="text-2xl text-white pt-8 font-bold">
-                        Trending Events
-                    </h1>
-                    <div className="w-full h-px bg-white m-2"></div>
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-8">
-                        {largeEvents.filter(event => event.likes > 0).length > 0 ? (
-                            largeEvents.filter(event => event.likes > 0).map((event) => (
-                                <Card
-                                    key={event._id}
-                                    id={event._id}
-                                    imageSrc={getEventImage(event?.type)}
-                                    EventName={event.eventname}
-                                    EventTime={event.time}
-                                    EventLocation={event.location}
-                                    EventType={event.type}
-                                    EventLikes={event.likes}
-                                    EventDuration={event.Duration}
-                                    EventAgeLimit={event.AgeLimit}
-                                    // EventAbout={event.about}
-                                />
-                            ))
-                        ) : (
-                            <div className="col-span-full text-center text-white">
-                                No trending events found
-                            </div>
-                        )}
-                    </div>
-                </div>
+  <h1 className="text-2xl text-white pt-8 font-bold">
+    Trending Events
+  </h1>
+  <div className="w-full h-px bg-white m-2"></div>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-8">
+    {[...largeEvents, ...hosterEvents].filter(event => event.likes > 0).length > 0 ? (
+      [...largeEvents, ...hosterEvents].filter(event => event.likes > 0).map((event) => (
+        <Card
+          key={event._id}
+          id={event._id}
+          imageSrc={getEventImage(event?.type)}
+          EventName={event.eventname}
+          EventTime={event.time}
+          EventLocation={event.location}
+          EventType={event.type}
+          EventLikes={event.likes}
+          EventDuration={event.Duration}
+          EventAgeLimit={event.AgeLimit}
+          // EventAbout={event.about}
+        />
+      ))
+    ) : (
+      <div className="col-span-full text-center text-white">
+        No trending events found
+      </div>
+    )}
+  </div>
+</div>
 
                 {/* Upcoming Events */}
                 <div className="mb-12">
                     <h1 className="text-2xl text-white pt-8 font-bold">
                         Upcoming Events
+                    </h1>
+                    <div className="w-full h-px bg-white m-2"></div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-8">
+                        {largeEvents.slice(0, 2).map((event) => (
+                            <Card
+                                key={event._id}
+                                id={event._id}
+                                imageSrc={getEventImage(event?.type)}
+                                EventName={event.eventname}
+                                EventTime={event.time}
+                                EventLocation={event.location}
+                                EventType={event.type}
+                                EventLikes={event.likes}
+                                EventDuration={event.Duration}
+                                EventAgeLimit={event.AgeLimit}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                {/* Other Events */}
+                <div className="mb-12">
+                    <h1 className="text-2xl text-white pt-8 font-bold">
+                        Other Events
                     </h1>
                     <div className="w-full h-px bg-white m-2"></div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-8">

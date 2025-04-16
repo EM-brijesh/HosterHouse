@@ -27,10 +27,25 @@ export const getUpcomingEvents = async () => {
 };
 
 export const likeEvent = async (eventId) => {
-    const response = await fetch(`${API_URL}/likeevent/${eventId}`);
-    const data = await response.json();
-    return data;
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${API_URL}/likeevent`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify({ eventId })
+  });
+  
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Failed to like event: ${response.status} - ${errorText}`);
+  }
+  
+  const data = await response.json();
+  return data;
 };
+
 
 export const CreateHoster = async (formData, token) => {
     try {
